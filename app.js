@@ -89,6 +89,11 @@ $(function () {
             player.pos.y ++;
             dropCounter=0
         }
+        if (collide(arena,player)){
+            player.pos.y--;
+            merge(arena,player);
+            player.pos.y = 0;
+        }
 
         draw();
         requestAnimationFrame(update);
@@ -110,6 +115,12 @@ $(function () {
             player.pos.x ++;
         }else if (event.keyCode === 40){
             playerDrop();
+        }else if (event.keyCode === 65){
+            player.pos.x --;
+        }else if (event.keyCode === 68){
+            player.pos.x ++;
+        }else if (event.keyCode === 83){
+            playerDrop()
         }
     });
 
