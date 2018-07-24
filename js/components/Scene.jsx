@@ -7,6 +7,7 @@ class Scene extends React.Component {
         this.state = {
             x:12,
             y:1,
+            draw:this.draw()
 
         };
     }
@@ -41,8 +42,9 @@ class Scene extends React.Component {
         //     merge(arena,player);
         //     player.pos.y = 0;
         // }
-
-        this.draw();
+        this.setState({
+            draw:this.draw(),
+            });
         requestAnimationFrame(this.update);
     }
 
