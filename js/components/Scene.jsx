@@ -2,63 +2,49 @@ import React from 'react';
 import Brick from "./Brick.jsx";
 
 class Scene extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            x:12,
-            y:1,
-            draw:this.draw()
 
-        };
-    }
-    draw() {
-        const canvas = this.refs.canvas;
-        const context = canvas.getContext('2d');
-        context.scale(10, 10);
-        context.fillStyle = "#000";
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        const brick = new Brick();
-        const randomShape = brick.randomShape();
-        brick.drawBrick(randomShape, this.state.x, this.state.y, context);
-        // this.update();
-        // this.state.update.update(this.draw, context, canvas, x, y);
-    }
-    update(time = 0) {
-
-        let dropCounter = 0;
-        let dropInterval = 1000;
-        let lastTime = 0;
-
-        const deltaTime = time - lastTime;
-        lastTime = time;
-
-        dropCounter += deltaTime;
-        if (dropCounter > dropInterval){
-            this.state.y ++;
-            dropCounter = 0
-        }
-        // if (collide(arena,player)){
-        //     player.pos.y--;
-        //     merge(arena,player);
-        //     player.pos.y = 0;
-        // }
-        this.setState({
-            draw:this.draw(),
-            });
-        requestAnimationFrame(this.update);
-    }
-
-    componentDidMount(){
-        this.update()
+  constructor(props){
+    super(props);
+    this.state = {
+      x:12,
+      y:20
     };
+  }
 
-    render() {
+  drawScene(){
+    this.context.scale(10, 10);
+    this.context.fillStyle = "#000";
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.startGame();
+  }
 
-        return <div>
-            <canvas ref="canvas" style={{width: "250", height: "400"}}>
-            </canvas>
-        </div>
-    }
+  startGame(){
+    this.brick = new Brick();
+    const randomShape = this.brick.randomShape();
+    this.brick.drawBrick(randomShape, this.state.x, this.state.y, this.context);
+    this.intervalId = setInterval(this.moveBrick, 1000);
+  }
+
+  moveBrick = () => {
+    const {x, y} = this.state;
+    this.setState({
+      y: y-1
+    }, () => {
+      this.brick.drawBrick(this.brick.shape, x, y, this.context);
+    });
+  }
+
+  componentDidMount(){
+    this.canvas = this.refs.canvas;
+    this.context = this.canvas.getContext('2d');
+    this.drawScene();
+  };
+
+  render() {
+    return <div>
+              <canvas ref="canvas" style={{width: "250", height: "400"}}></canvas>
+           </div>
+  }
 
 }
 
