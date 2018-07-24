@@ -32,13 +32,26 @@ class Brick {
 
   }
 
+    clearBrick(shape, piecePositionX,piecePositionY,context) {
+        shape.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value === 1) {
+                    context.fillStyle = "#000000";
+                    context.fillRect(x+piecePositionX
+                        , y+piecePositionY-1
+                        , 1, 1);
+                }
+            });
+        });
+    }
+
   drawBrick(shape, piecePositionX,piecePositionY,context) {
     shape.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== 0) {
           context.fillStyle = "#0052ff";
-          context.fillRect(x + piecePositionX
-            , y + piecePositionY
+          context.fillRect(x+piecePositionX
+            , y+piecePositionY
             , 1, 1);
         }
       });
