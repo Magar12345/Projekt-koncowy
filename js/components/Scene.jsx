@@ -7,13 +7,14 @@ class Scene extends React.Component {
         this.state = {
             x:12,
             y:1,
-            draw:this.draw()
+            draw:this.draw(),
+            context:this.context,
 
         };
     }
     draw() {
         const canvas = this.refs.canvas;
-        const context = canvas.getContext('2d');
+        const context = this.state.getContext('2d');
         context.scale(10, 10);
         context.fillStyle = "#000";
         context.fillRect(0, 0, canvas.width, canvas.height);
