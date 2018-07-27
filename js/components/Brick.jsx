@@ -4,7 +4,7 @@ class Brick extends Component{
     constructor(props){
         super(props);
         this.shape = this.randomShape();
-        this.randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        this.randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) ;
     }
 
     randomShape(){
@@ -45,6 +45,10 @@ class Brick extends Component{
                 }
             });
         });
+    }
+
+    shouldComponentUpdate(){
+        return this.props.canUpdate;
     }
 
     componentDidMount(){
