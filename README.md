@@ -1,1 +1,3 @@
-# Projekt-koncowy
+# Final-Project
+
+Hey! This is my first project and at the same time my final project from the programming course. In this project I want to play the game "Tetris" using React. The game itself will be posted on the player's website. I will be throwing more game projects over time. At the moment the game is in the development phase and many elements do not work as it should but I hope that over time I will learn all to finish it and create new game projects. I am open to any comments about the project.
