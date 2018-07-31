@@ -25,7 +25,7 @@ class Scene extends React.Component {
 
   drawScene(){
     // this.context.scale(1, 1);
-    this.context.fillStyle = "#000";
+    this.context.fillStyle = "#f1f1f1";
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
      this.matrix = this.createMatrix();
      this.startGame();
@@ -39,10 +39,10 @@ class Scene extends React.Component {
           clearInterval(this.intervalId);
           return false;
       }
-      if(this.matrixCollide()){
-          clearInterval(this.intervalId);
-          return false;
-      }
+      // if(this.matrixCollide()){
+      //     clearInterval(this.intervalId);
+      //     return false;
+      // }
       return true;
   }
   matrixCollide() {
@@ -55,21 +55,16 @@ class Scene extends React.Component {
               for ( let k = 0; k < 3; k++){
                   for (let l = 0; l < 3; l++){
 
+                      if (matrix[i][j] + brickShape[k][l] === 2){
 
+                          alert("kolizja klocka");
+                          return true;
+                      }
                   }
               }
           }
       }
   }
-
-
-    //1. Musze miec pozycje klocka (ze state'a)
-    //2. Musze miec dostep do matrixa
-    //3. Musze obliczyc sume dla kazdej z komorek wedlug wzoru:
-    //   Od x do x+3 np. this.matrix[y][x], this.matrix[y][x+1], this.matrix[y][x+2], this.matrix[y][x+3]
-    //   Od y do y+3 np. this.matrix[y+1][x], this.matrix[y+1][x+1], this.matrix[x+2], this.matrix[x+3]
-
-
     startGame() {
       document.addEventListener('keydown', event => {
           if (this.canMove(this.state.x - 10, this.state.y) && event.keyCode === 37) {
@@ -126,7 +121,7 @@ class Scene extends React.Component {
                   }else{
                       this.startBrick();
                   }
-              }, 3000);
+              }, 500);
           });
       });
   }
@@ -147,34 +142,21 @@ class Scene extends React.Component {
       return matrix;
   }
 
-
-    updateMatrix(x, y, brick){
-        console.log(this.matrix);
-
-        for(let i = 0; i < 3; i++){
-          for(let j = 0; j < 3; j++) {
-              this.matrix[i + 1][y - j] = brick[i][j];
-          }
-        }
-      console.log(this.matrix);
-    }
-
     collide() {
         const {x, y} = this.state;
-        const brick = this.brick.drawBrick;
+        const brick = this.bricks[this.currentBrick].shape;
         const matrix = this.matrix;
 
-        for (let i = y; i < matrix.length - 20; i++) {
+        for (let i = y; i < matrix.length ; i++) {
             for (let j = x; j <= x + 3; i++) {
                 for (let k = 0; k < 3; k++) {
                     for (let l = 0; l < 3; l++) {
                         const matrixCellValue = matrix[i][j];
                         const brickCellValue = brick[k][l];
-                        debugger;
+
 
                         if (matrixCellValue + brickCellValue === 2) {
-                            this.updateMatrix(j, i, brick);
-                            alert('collide');
+
                             return true
                         }
                     }

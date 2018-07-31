@@ -4,7 +4,15 @@ class Brick extends Component{
     constructor(props){
         super(props);
         this.shape = this.randomShape();
-        this.randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) ;
+        this.randomColor = this.getRandomRolor() ;
+    }
+    getRandomRolor() {
+        var letters = '0123456789'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.round(Math.random() * 10)];
+        }
+        return color;
     }
 
     randomShape(){
