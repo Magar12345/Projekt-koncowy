@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+.gameSite{
+  background-image: url("/pic/500_F_174986989_DXwTnIwzfrDugObOBIk2jGQvB1VVeS0h.jpg");
+
+}
 .header{
   background-color: black;
   width: 100vw;
@@ -21,7 +25,34 @@
   background-color: black;
 
 }
-.gameSite{
-  background-image: url("/pic/500_F_174986989_DXwTnIwzfrDugObOBIk2jGQvB1VVeS0h.jpg");
-
+.news{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5px;
+}
+.newsOne,
+.newsTwo,
+.newsThree{
+  width: 400px;
+  height: 300px;
+  background-color: mintcream;
+}
+.newsImg1{
+  background-image: url("/pic/gameOne.jpg");
+  background-size: cover;
+  width: 400px;
+  height: 300px;
+}
+.newsImg2{
+  background-image: url("/pic/gameTwo.jpg");
+  background-size: cover;
+  width: 400px;
+  height: 300px;
+}
+.newsImg3{
+  background-image: url("/pic/gameThree.jpg");
+  background-size: cover;
+  width: 400px;
+  height: 300px;
 }
