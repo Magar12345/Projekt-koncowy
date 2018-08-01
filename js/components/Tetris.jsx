@@ -14,6 +14,11 @@ class Tetris extends React.Component{
                 <Scene/>
             </div>
         </section>
+        <section className="gameDescription">
+            <img src="/pic/tetris-670x335.jpg"/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et nulla ultricies odio porta fermentum eu a mauris. Fusce non hendrerit urna. Donec fermentum ac nibh id vestibulum. Integer auctor condimentum mollis. Curabitur cursus vel elit eget ullamcorper. Pellentesque lectus nunc, ullamcorper non fringilla eu, ornare in mauris. Mauris consequat porta nisi, sed ornare orci viverra sed. Suspendisse a dolor erat. Aliquam a tortor ultricies, luctus orci faucibus, bibendum tellus. Integer maximus vestibulum rutrum. Praesent nec sem quis nunc porttitor aliquet pellentesque in enim. Sed nisi quam, ultricies vel facilisis vel, ornare sed augue. Integer cursus eget tellus ultrices accumsan. Suspendisse eleifend nisi ac turpis suscipit, nec scelerisque dui condimentum.
+            </p>
+        </section>
         <section className="news">
             <div className="newsOne">
                 <div className="newsImg1">

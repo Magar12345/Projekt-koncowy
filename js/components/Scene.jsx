@@ -39,10 +39,10 @@ class Scene extends React.Component {
           clearInterval(this.intervalId);
           return false;
       }
-      // if(this.matrixCollide()){
-      //     clearInterval(this.intervalId);
-      //     return false;
-      // }
+      if(this.matrixCollide()){
+          clearInterval(this.intervalId);
+          return false;
+      }
       return true;
   }
   matrixCollide() {
@@ -52,8 +52,8 @@ class Scene extends React.Component {
 
       for ( let i = x; i < x+3 ; i++){
           for( let j = y; j < y+3; j++){
-              for ( let k = 0; k < 3; k++){
-                  for (let l = 0; l < 3; l++){
+              for ( let k = i+3; k < 3; k++){
+                  for (let l = j+3; l < 3; l++){
 
                       if (matrix[i][j] + brickShape[k][l] === 2){
 
