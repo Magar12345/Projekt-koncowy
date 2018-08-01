@@ -17,13 +17,40 @@
   color: ghostwhite;
   font-size: 23px;
   position: relative;
+  left: 5px;
   top: 10px; }
+
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: -29px 90px 0px 0px; }
+
+.menu button {
+  height: 50px;
+  width: 150px;
+  background-color: black;
+  font-family: 'Source Code Pro', monospace;
+  color: whitesmoke;
+  transition: 2s;
+  border: none;
+  cursor: pointer; }
+  .menu button:hover {
+    background-color: whitesmoke;
+    color: black; }
 
 .mainContent {
   height: 500px;
   width: 90vw;
   margin: 10px 100px 10px 100px;
-  background-color: black; }
+  background-color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .mainContent h1 {
+    color: whitesmoke;
+    font-family: 'Source Code Pro', monospace; }
 
 .gameDescription {
   height: 335px;

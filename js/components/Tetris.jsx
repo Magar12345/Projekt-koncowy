@@ -6,6 +6,13 @@ class Tetris extends React.Component{
     return<div className="gameSite">
         <header className="header">
             <p>OLD GAME/NEW GAME</p>
+            <div className="menu">
+                <button>Strona główna</button>
+                <button>Gry</button>
+                <button>O mnie</button>
+                <button>Kontakt</button>
+
+            </div>
         </header>
         <section className="mainContent">
             <div className="tetris"
@@ -52,8 +59,6 @@ class Tetris extends React.Component{
             </div>
 
         </section>
-
-
     </div>
   }
 }

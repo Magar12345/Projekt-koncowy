@@ -173,7 +173,7 @@ class Scene extends React.Component {
   render() {
     return <div style={{position:"relative"}}>
               <canvas ref="canvas" style={{
-                  width:"250", height:"400", position:"absolute", left: "0", top:"0"}}></canvas>
+                  width:"250", height:"400", position:"relative", left: "0", top:"0"}}></canvas>
         {
             this.state.bricks.map((brick,index) => {
                 return <Brick canUpdate={index === this.state.currentBrick} x={this.state.x} y={this.state.y}/>
